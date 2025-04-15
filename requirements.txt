@@ -24,3 +24,5 @@ transformers==4.39.3
 
 # Numerical operations
 numpy==1.26.4
+
+pip==23.0.1
