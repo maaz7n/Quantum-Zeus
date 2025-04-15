@@ -1,37 +1,5 @@
-# Core packages
-python-dotenv==1.0.1
 streamlit==1.30.0
-google-generativeai==0.3.2
-
-# Machine learning + preprocessing
-scikit-learn==1.4.1
-pandas==2.2.2
-numpy==1.26.4
-
-# Deep learning and Transformers
-torch==2.2.1
-transformers==4.39.3
-
-# Quantum computing
-pennylane==0.36.0
-pennylane-qiskit==0.34.0
-qiskit==1.0.2
-
-# Optional: Classical quantum parsing + diagrammatic reasoning
 lambeq==0.3.3
-
-# Optional: If using pytket with lambeq or quantum circuits
-pytket==1.28.0
-pytket-qiskit==0.42.0
-
-# Plotting / visualization (optional but helpful for debugging)
-matplotlib==3.8.3
-seaborn==0.13.2
-
-# Text and NLP helpers
-nltk==3.8.1
-spacy==3.7.2
-sentencepiece==0.1.99  # Required by some transformer models
-
-# Streamlit utilities
-watchdog==4.0.0
+pennylane==0.36.0
+scikit-learn==1.4.1
+torch==2.2.1
