@@ -1,28 +1,30 @@
-# Environment variables
-python-dotenv==1.0.1
-
-# Google Generative AI SDK (optional)
-google-generativeai==0.3.2
-
-# Streamlit for web app development
+# Streamlit Web UI
 streamlit==1.30.0
 
-# Quantum NLP
+# Google Generative AI (if used)
+google-generativeai==0.3.2
+
+# Lambeq for quantum NLP
 lambeq==0.3.3
 
-# Quantum machine learning
+# PennyLane for quantum machine learning
 pennylane==0.36.0
 
-# Classical machine learning
+# Scikit-learn for machine learning utilities
 scikit-learn==1.4.1
 
-# Quantum deep learning framework (PyTorch)
+# PyTorch for deep learning and NLP models
 torch==2.2.1
 
-# Hugging Face transformers (if used)
+# Hugging Face transformers for BERT and other models
 transformers==4.39.3
 
-# Numerical operations
+# NumPy for numerical operations (required by multiple packages)
 numpy==1.26.4
 
+# Datasets for handling NLP datasets (optional, complements transformers)
+datasets==2.19.0
+
+# Pip - Ensure latest pip version is installed (useful in some cases)
 pip==23.0.1
+
