@@ -5,3 +5,5 @@ lambeq==0.3.3
 discopy==1.1.7
 pennylane==0.36.0
 scikit-learn
+import os
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
