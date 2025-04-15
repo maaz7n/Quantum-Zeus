@@ -1,15 +1,26 @@
-# ✅ Core tools
+# Environment variables
 python-dotenv==1.0.1
+
+# Google Generative AI SDK (optional)
 google-generativeai==0.3.2
+
+# Streamlit for web app development
 streamlit==1.30.0
 
-# ✅ Quantum & ML stack
+# Quantum NLP
 lambeq==0.3.3
-pennylane==0.36.0
-scikit-learn==1.4.1
-torch==2.2.1
-transformers==4.39.3
-numpy==1.26.4
 
-# 🔥 Optional: if you need datasets later (use a newer version)
-# datasets==2.19.0
+# Quantum machine learning
+pennylane==0.36.0
+
+# Classical machine learning
+scikit-learn==1.4.1
+
+# Quantum deep learning framework (PyTorch)
+torch==2.2.1
+
+# Hugging Face transformers (if used)
+transformers==4.39.3
+
+# Numerical operations
+numpy==1.26.4
