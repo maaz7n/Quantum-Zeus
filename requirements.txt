@@ -20,7 +20,7 @@ scikit-learn==1.4.1
 torch==2.2.1
 
 # Hugging Face transformers for BERT and other models
-transformers==4.44.2
+transformers==4.39.3
 
 # NumPy for numerical operations (required by multiple packages)
 numpy==1.26.4
