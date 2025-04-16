@@ -1,30 +1,29 @@
 # Streamlit Web UI
 streamlit==1.30.0
 
-# Google Generative AI (if used)
+# Google Generative AI
 google-generativeai==0.3.2
 
-# Lambeq for quantum NLP
+# Lambeq (Quantum NLP)
 lambeq==0.3.3
 
-# PennyLane for quantum machine learning
+# PennyLane (Quantum computing)
 pennylane==0.36.0
 
-# Scikit-learn for machine learning utilities
-scikit-learn==1.4.1
+# Scikit-learn
+scikit-learn==1.3.2  # safer version for compatibility
 
-# PyTorch for deep learning and NLP models
-torch==2.2.1
+# PyTorch (deep learning) – MATCHED with transformers
+torch==2.1.2  # more compatible with transformers
 
-# Hugging Face transformers for BERT and other models
-transformers==4.39.3
+# Transformers – aligned with torch and lambeq
+transformers==4.37.2  # better for lambeq/torch stability
 
-# NumPy for numerical operations (required by multiple packages)
+# NumPy
 numpy==1.26.4
 
-# Datasets for handling NLP datasets (optional, complements transformers)
-datasets==2.19.0
+# NLP datasets
+datasets==2.17.1  # slightly older, more compatible
 
-# Pip - Ensure latest pip version is installed (useful in some cases)
-pip==23.0.1
-
+# Pip
+pip>=23.0.1
