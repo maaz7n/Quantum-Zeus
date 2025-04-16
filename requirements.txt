@@ -1,16 +1,16 @@
-# Streamlit Web UI
+# Streamlit for web interface
 streamlit==1.30.0
 
 # Google Generative AI
 google-generativeai==0.3.2
 
-# Lambeq for quantum NLP
+# Lambeq for quantum NLP (quantum language processing)
 lambeq==0.3.3
 
 # PennyLane for quantum machine learning
 pennylane==0.36.0
 
-# Scikit-learn for ML utilities (latest stable version)
+# Scikit-learn for machine learning utilities
 scikit-learn==1.4.2
 
 # NumPy for numerical operations
@@ -19,17 +19,14 @@ numpy==1.26.4
 # PyTorch (aligned with common Transformer versions)
 torch==2.2.1
 
-# Hugging Face transformers
+# Hugging Face transformers for BERT and other models
 transformers==4.39.3
 
 # Hugging Face datasets (optional, complements transformers)
 datasets==2.19.0
 
-# Dotenv for environment variable loading
+# Dotenv for loading environment variables
 python-dotenv==1.0.1
 
-# Pip - keep this updated
+# Pip for managing installations
 pip==23.0.1
-
-# Discopy (for drawing quantum circuits, etc.)
-discopy==0.2.0
