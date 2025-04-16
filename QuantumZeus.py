@@ -2,15 +2,13 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 import google.generativeai as gen_ai
-import pennylane as qml
-import numpy as np
 from lambeq import BobcatParser
-from sklearn.preprocessing import LabelEncoder
+import torch
 
 # Load environment variables
 load_dotenv()
 
-# Configure Streamlit page
+# Configure Streamlit page settings
 st.set_page_config(
     page_title="Quantum Zeus 1.0",
     page_icon="⚡️",
@@ -20,70 +18,58 @@ st.set_page_config(
 # Get and validate API key
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not GOOGLE_API_KEY:
-    st.error("GOOGLE_API_KEY not found in environment variables.")
+    st.error("Error: GOOGLE_API_KEY not found in environment variables.")
     st.stop()
 
-# Set up Gemini model
+# Set up Google Gemini AI model
 try:
     gen_ai.configure(api_key=GOOGLE_API_KEY)
     model = gen_ai.GenerativeModel(model_name="gemini-1.5-pro")
 except Exception as e:
-    st.error(f"Error initializing Gemini API: {e}")
+    st.error(f"Error initializing Gemini API: {str(e)}")
     st.stop()
 
-# Initialize Quantum NLP Parser (Lambeq)
-parser = BobcatParser()
-
-# Define quantum device (simulator)
-n_qubits = 4  # Small for demo
-dev = qml.device("default.qubit", wires=n_qubits)
-
-# Quantum circuit for QNLP
-@qml.qnode(dev)
-def quantum_circuit(params):
-    for i in range(n_qubits):
-        qml.RX(params[i], wires=i)
-        qml.RZ(params[i + n_qubits], wires=i)
-    qml.CNOT(wires=[0, 1])
-    qml.CNOT(wires=[2, 3])
-    return qml.expval(qml.PauliZ(0))  # Measure for classification
-
-# Convert text to quantum circuit (using Lambeq)
-def text_to_circuit(text):
+# Quantum NLP: Example of integrating quantum logic using Lambeq (only symbolic here)
+def quantum_nlp_process(input_text):
+    # This function can be extended to integrate quantum NLP processing
     try:
-        diagram = parser.sentence2diagram(text, tokenised=False)
-        return diagram
+        # Placeholder for actual quantum NLP processing
+        parser = BobcatParser()
+        return parser.parse(input_text)  # Simulate quantum NLP processing
     except Exception as e:
-        st.error(f"Error parsing text: {str(e)}")
-        return None
+        return f"Quantum NLP Error: {str(e)}"
+
+# Role mapping for display
+def translate_role(role):
+    return "assistant" if role == "model" else role
 
 # Initialize chat session
 if "chat_session" not in st.session_state:
     st.session_state.chat_session = model.start_chat(history=[])
 
-# Title
-st.title("🤖 Quantum Zeus 1.0 (Powered by Google Gemini & Quantum NLP)")
+# Title of the page
+st.title("🤖 Quantum Zeus 1.0 (Powered by Google Gemini)")
 
-# Chat history display
+# Display chat history
 for message in st.session_state.chat_session.history:
-    with st.chat_message("assistant" if message.role == "model" else "user"):
+    with st.chat_message(translate_role(message.role)):
         st.markdown(message.parts[0].text if message.parts else "(empty)")
 
-# Chat input
+# Input from the user
 user_prompt = st.chat_input("Ask Zeus anything...")
 if user_prompt:
     try:
+        # Display user input
         st.chat_message("user").markdown(user_prompt)
-        # Apply Quantum NLP processing (dummy quantum circuit optimization)
-        diagram = text_to_circuit(user_prompt)
-        if diagram:
-            # Simplified: generate quantum-based prediction based on the input
-            params = np.random.randn(2 * n_qubits)
-            response = quantum_circuit(params)
-            st.chat_message("assistant").markdown(f"Quantum Zeus processed your input. Result: {response:.4f}")
-        else:
-            # Fallback to standard Gemini response
-            response = st.session_state.chat_session.send_message(user_prompt)
-            st.chat_message("assistant").markdown(response.text)
+        
+        # Here, you can optionally process the input with Quantum NLP
+        processed_prompt = quantum_nlp_process(user_prompt)
+
+        # Send the user input (or processed input) to Gemini model
+        response = st.session_state.chat_session.send_message(processed_prompt)
+        
+        # Display assistant's response
+        with st.chat_message("assistant"):
+            st.markdown(response.text)
     except Exception as e:
-        st.error(f"Chat error: {e}")
+        st.error(f"Error processing chat: {str(e)}")
