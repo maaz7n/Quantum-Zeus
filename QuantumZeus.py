@@ -2,8 +2,9 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 import google.generativeai as gen_ai
-from lambeq import BobcatParser
 import torch
+from lambeq import BobcatParser
+from discopy import monoidal
 
 # Load environment variables
 load_dotenv()
