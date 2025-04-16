@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import google.generativeai as gen_ai
 from lambeq import BobcatParser
 import torch
-import discopy
 
 # Load environment variables
 load_dotenv()
@@ -17,7 +16,8 @@ st.set_page_config(
 )
 
 # Get and validate API key
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = "AIzaSyDdCJwkbVzAkdyUl_XvkReARXUidx-P5LM"
+
 if not GOOGLE_API_KEY:
     st.error("Error: GOOGLE_API_KEY not found in environment variables.")
     st.stop()
