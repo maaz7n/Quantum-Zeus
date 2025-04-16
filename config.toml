@@ -1,72 +1,47 @@
 # === Quantum Zeus 1.0 Configuration ===
 
 [api]
-# Google Gemini API Key
 google_api_key = "AIzaSyDdCJwkbVzAkdyUl_XvkReARXUidx-P5LM"
 
-# Optional: Additional API keys for future providers (OpenAI, Hugging Face, etc.)
-# openai_api_key = "your_openai_api_key"
-# huggingface_api_key = "your_huggingface_api_key"
-
 [settings]
-# Model configuration for Google Gemini
-model = "gemini-advanced"  # Change based on your choice: "gemini-pro", "gemini-advanced", etc.
-
-# Default language for text generation (prompting and responses)
+# 🤖 Gemini Model Configuration
+model = "models/gemini-1.5-pro-latest"
 language = "en"
-
-# Quantum NLP (Q-NLP) settings
-enable_qnlp = true  # Set to false to disable Q-NLP features
-
-# Maximum output tokens for model responses (Google Gemini API)
+enable_qnlp = true
 max_output_tokens = 2048
-
-# Additional settings for Chatbot behavior
-debug_mode = true  # Set to false to disable debug mode and verbose logging
+debug_mode = true
 
 [streamlit]
-# Streamlit settings for the web UI
+# 💻 Streamlit Web UI
 page_title = "Quantum Zeus 1.0"
 page_icon = "⚡️"
-theme = "auto"  # Choose "light", "dark", or "auto"
-run_on_save = true  # Automatically re-run script when file changes
-
-# Debug settings for Streamlit
+theme = "auto"  # Options: "light", "dark", "auto"
+run_on_save = true
+input_placeholder = "Ask Zeus anything..."
+history_display = true
 debug = true
 
-# Chat UI customization
-input_placeholder = "Ask Zeus anything..."
-history_display = true  # Show message history in chat
-
 [quantum]
-# Quantum NLP integration settings (for tools like lambeq)
-enable_lambeq = true  # Enable if using lambeq for quantum NLP parsing
-lambeq_parser = "bobcat"  # Available parsers: "bobcat", "spacy", etc.
-tensor_ansatz = "IQPAnsatz"  # Quantum circuit ansatz (IQP, HHL, etc.)
-use_pennylane = true  # Use PennyLane for quantum machine learning (optional)
-
-# Quantum model settings
-quantum_optimizer = "quantum-gradient-descent"  # Example optimizer for quantum models
-
-# Path for saving quantum diagrams, if applicable
+# ⚛️ Quantum NLP and Circuit Config
+enable_lambeq = true
+lambeq_parser = "bobcat"  # Options: "bobcat", "spacy"
+tensor_ansatz = "IQPAnsatz"  # Options: "IQPAnsatz", "HHLAnsatz", etc.
+use_pennylane = true
+quantum_optimizer = "quantum-gradient-descent"
 diagram_save_path = "quantum_diagrams/"
-
-# Any additional quantum features you want to enable
-enable_quantum_computation = false  # Enable for running quantum circuits locally or remotely
+enable_quantum_computation = false
 
 [logging]
-# Logging level for debugging and tracking
+# 🪵 Logging level for debugging
 level = "debug"  # Options: "error", "warning", "info", "debug"
 
 [server]
-# Server configurations for running Streamlit app
-port = 8501  # Streamlit server port (default 8501)
-headless = true  # Set to true to run Streamlit in headless mode (no browser window)
+# 🖥️ Streamlit server settings
+port = 8501
+headless = true
 
 [browser]
-# Browser settings for Streamlit interface
-server_address = "0.0.0.0"  # Listen on all network interfaces
-server_port = 8501  # Port for the browser to connect to
-
-# Gather usage statistics for Streamlit
-gather_usage_stats = true  # Set to false to opt-out
+# 🌐 Network settings
+server_address = "0.0.0.0"
+server_port = 8501
+gather_usage_stats = true
