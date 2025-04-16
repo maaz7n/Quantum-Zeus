@@ -10,7 +10,7 @@ import numpy as np
 load_dotenv()
 
 # Load config.toml
-config_path = "/Users/mohammedmazin/Downloads/quantum_config.toml"
+config_path = "config.toml"
 
 try:
     config = toml.load(config_path)
