@@ -10,20 +10,23 @@ lambeq==0.3.3
 # PennyLane for quantum machine learning
 pennylane==0.36.0
 
-# Scikit-learn for ML utilities (fixed version)
-scikit-learn==1.4.1.post1
+# Scikit-learn for ML utilities (latest stable version)
+scikit-learn==1.4.2
 
-# PyTorch (ensure correct version for transformers compatibility)
-torch==2.2.1
-
-# Hugging Face transformers for BERT and models
-transformers==4.39.3
-
-# NumPy (required by multiple packages)
+# NumPy for numerical operations
 numpy==1.26.4
 
-# Hugging Face datasets library (optional)
+# PyTorch (aligned with common Transformer versions)
+torch==2.2.1
+
+# Hugging Face transformers
+transformers==4.39.3
+
+# Hugging Face datasets (optional, complements transformers)
 datasets==2.19.0
 
-# Ensure latest pip for installing dependencies
+# Dotenv for environment variable loading
+python-dotenv==1.0.1
+
+# Pip - keep this updated
 pip==23.0.1
