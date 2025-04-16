@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import google.generativeai as gen_ai
 from lambeq import BobcatParser
 import torch
+import discopy
 
 # Load environment variables
 load_dotenv()
